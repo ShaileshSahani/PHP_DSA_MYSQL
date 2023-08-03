@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+    function validate(){
+        var age = document.getElementsByName("age")[0].value;
+        var name = document.getElementById("name").value;
+        var gender = document.getElementById("gender").value;
+        var email = document.getElementById("email").value;
+
+        if (name == ""){
+            alert("Name Field is Empty");
+            return false;
+        }
+        else if (gender == " "){
+            alert("Gender Field is Empty");
+            return false;
+        }
+        else if(isNaN(parseInt(age)) || parseInt(age)< 25){
+            alert('Age should be a number and greater than or equal to 25');
+            return false;
+        }
+        else if (email == " "){
+            alert("Enter your email");
+            return false;
+        }
+        else{
+            alert("Your Data Has Been Recorded")
+            return true;
+        }
+
+    }
+</script>
+</head>
+<body>
+    <form action="http://localhost:3000/Php/SqlForm.php" method="post" onsubmit="return validate()">
+        Name: <input type="text" name="name" id="name"><br><br>
+        Age : <input type="number" min="25" max="65" step name="age"><br><br>
+        Gender:<input id="gender" type="radio" value="male" name="gender" id="gender">
+        <input id="gender" type="radio" value="female" name="gender" id="gender"><br><br>
+        Email: <input type="text" name="email" id="email"><br><br>
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>

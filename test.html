@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Validate(){
+        var name = document.getElementById("name").value;
+        var pass = document.getElementById("pass").value;
+        var n = pass.length;
+        if(name == "" || pass == ""){
+            alert("Please Enter Name and Password");
+            return false;
+        }
+        else if(n < 8){
+            alert("Password Should be 8 Characters ");
+            return false;
+        }
+        else{
+            alert("Welcome " + name);
+            return true
+        }
+        }
+    </script>
+    <form action="http://localhost:3000/php/test.php",
+     method="post" onsubmit="return Validate()">
+
+    <label for="name">Username</label>
+    <input type="text" id="name" name="name"><br>
+    <label for="pass">Password</label>
+    <input type="text" id="pass" name="pass"><br>
+    <input type="submit">
+    </form>
+    
+</body>
+</html>
